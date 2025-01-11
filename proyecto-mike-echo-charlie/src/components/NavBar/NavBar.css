@@ -1,0 +1,30 @@
+.navbar {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    width: 100%; 
+    padding: 10px 20px; 
+    background-color: #f8f9fa; 
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box; 
+    position: fixed; 
+    top: 0;
+    left: 0; 
+    z-index: 1000; 
+}
+
+.logo-image{
+    width: 100px;
+    height: 100px;
+}
+
+.cart-widget {
+    margin-left: auto; 
+}
+  
+.navbar__buttons {
+    display: flex; 
+    justify-content: center; 
+    flex-grow: 1; 
+    gap: 20px; 
+}
