@@ -1,0 +1,7 @@
+.item-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 16px;
+    background-color: #f9f9f9;
+}

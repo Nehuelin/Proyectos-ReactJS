@@ -11,10 +11,10 @@ export default function NavBar(){
             <nav className="navbar">
                 <img className="logo-image" src={logo} alt="Home" />
                 <div className="navbar__buttons">
-                    <ButtonComponent text="Interactivas"/>
-                    <ButtonComponent text="EDM"/>
-                    <ButtonComponent text="Remixes"/>
-                    <ButtonComponent text="Albumes"/>
+                    <ButtonComponent text="Interactivas" linkTo="/Home"/>
+                    <ButtonComponent text="EDM" linkTo="/"/>
+                    <ButtonComponent text="Remixes" linkTo="/"/>
+                    <ButtonComponent text="Albumes" linkTo="/"/>
                 </div>
                 <CartWidget/>
             </nav>

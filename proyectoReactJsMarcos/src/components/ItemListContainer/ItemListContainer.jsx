@@ -1,8 +1,11 @@
+import ItemList from "../ItemList/ItemList"
+
 export default function ItemListContainer({greeting}){
 
     return(
-        <section>
+        <>
             <p>{greeting}</p>
-        </section>
+            <ItemList />
+        </>
     )
 }
