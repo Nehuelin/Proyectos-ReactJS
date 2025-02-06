@@ -1,0 +1,44 @@
+.item-detail {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+  }
+  
+  .item-detail h2 {
+    margin-bottom: 16px;
+    font-size: 2em;
+    color: #333;
+  }
+  
+  .item-detail img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .item-detail p {
+    margin: 8px 0;
+    color: #555;
+  }
+  
+  .item-detail a {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .item-detail a:hover {
+    background-color: #0056b3;
+  }
+  
+
