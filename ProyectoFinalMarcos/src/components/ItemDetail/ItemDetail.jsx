@@ -13,6 +13,7 @@ export default function ItemDetail() {
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [itemAdded, setItemAdded] = useState(false);
 
   const [cart, setCart, addItem] = useContext(CartContext);
 
@@ -33,6 +34,7 @@ export default function ItemDetail() {
   const handleAddToCart = (quantity) => {
     addItem(product, quantity);
     console.log(`Added ${quantity} items to cart`);
+    setItemAdded(true);
   };
 
   if (loading) return <p>Loading product details...</p>;
@@ -46,7 +48,7 @@ export default function ItemDetail() {
       <p>Precio: ${product.price}</p>
       <p>Condición: {product.condition ? "Nuevo" : "Usado"}</p> 
       <p>Stock disponible: {product.stock}</p> 
-      <ItemCount stock={product.stock} initial={1} onAdd={handleAddToCart} /> 
+      {!itemAdded && <ItemCount stock={product.stock} initial={1} onAdd={handleAddToCart} />} 
     </div>
   );
 }

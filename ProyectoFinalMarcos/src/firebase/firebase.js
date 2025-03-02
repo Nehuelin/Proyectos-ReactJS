@@ -92,29 +92,4 @@ export async function sendOrder(order) {
   }
 }
 
-export async function updateProduct(id, toUpdate) {
-  const itemDocRef = doc(db, 'products', id);
-  try {
-    await updateDoc(itemDocRef, toUpdate);
-    alert('Se actualizo el producto!');
-  } catch (error) {
-    console.log('Hubo un error al actualizar!', error);
-  }
-}
-
-export async function updateMultiple() {
-  const batch = writeBatch(db); 
-
-  const docRef1 = doc(db, 'products', 'ZjkF4RdijYUaR3gseS30');
-  const docRef2 = doc(db, 'orders', '0Nu9HbjYKc7hmS67nNzd');
-
-  batch.update(docRef1, { description: 'usb Logitech' });
-  batch.update(docRef2, { total: 1212 });
-
-  try {
-    await batch.commit(); 
-  } catch (error) {
-    console.log(error);
-  }
-}
 
