@@ -1,18 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { capitalize } from "../../helpers/stringFunctions";
+import { getItems, getItemsByCategory } from "../../firebase/firebase";
 
-import ItemList from "../ItemList/ItemList"
+import ItemList from "../ItemList/ItemList";
 
 import './ItemListContainer.css';
-
-
-const categoryMapping = {
-  apple: "iphone",
-  samsung: "samsung",
-  motorola: "motorola",
-  otros: "smartphone",
-};
 
 export default function ItemListContainer({ greeting }) {
   const { categoryId } = useParams();
@@ -20,15 +13,22 @@ export default function ItemListContainer({ greeting }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let searchQuery = categoryMapping[categoryId] || "smartphone"; 
-
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${searchQuery}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setItems(data.results);
+    setLoading(true);
+    const fetchItems = async () => {
+      try {
+        const results = categoryId ? await getItemsByCategory(categoryId) : await getItems();
+        if (results) {
+          setItems(results);
+        } else {
+          setItems([]);
+        }
         setLoading(false);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      }
+    };
+    fetchItems();
   }, [categoryId]);
 
   return (

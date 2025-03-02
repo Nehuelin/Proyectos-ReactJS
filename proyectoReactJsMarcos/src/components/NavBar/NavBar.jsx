@@ -18,7 +18,9 @@ export default function NavBar() {
         <ButtonComponent text="Motorola" linkTo="/category/motorola" />
         <ButtonComponent text="Otros" linkTo="/category/otros" />
       </div>
-      <CartWidget />
+      <Link to="/cart">
+        <CartWidget />
+      </Link>
     </nav>
   );
 }
